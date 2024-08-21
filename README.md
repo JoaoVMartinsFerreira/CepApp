@@ -2,11 +2,11 @@
 
 Flutter app that brings your ZIP code
 
-## Technologies and methods used in this app
-• Riverpod
-• Clean Architeecture
-• Test Driven Development
-• Local Storage
+## Technologies and methods used in this app </br>
+• Riverpod </br>
+• Clean Architeecture </br>
+• Test Driven Development  </br>
+• Local Storage </br>
 
 This project is a starting point for a Flutter application.
 
