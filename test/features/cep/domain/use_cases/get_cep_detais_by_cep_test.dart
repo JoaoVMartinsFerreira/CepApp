@@ -1,5 +1,3 @@
-import 'package:cep_app/features/cep/domain/entities/cep_response.dart';
-import 'package:cep_app/features/cep/domain/entities/get_ceo_details_by_cep_body.dart';
 import 'package:cep_app/features/cep/domain/errors/cep_exception.dart';
 import 'package:cep_app/features/cep/domain/repositories/cep_repository.dart';
 import 'package:cep_app/features/cep/domain/use_cases/get_cep_detais_by_cep.dart';
@@ -9,27 +7,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../fixtures/cep_fixtures.dart';
+import '../../../../fixtures/mock_cep_repositpry.dart';
 
-class MockCepRepository extends Mock implements CepRepository {}
+
 
 void main() {
   late CepRepository cepRepository;
   late GetCepDetaisByCep getCepDetaisByCep;
 /**
- * // Para fazer um settup antes de inicializar os testes. Inicializar a classse a ser testada e as classes dependentes
+ * // Para fazer um setup antes de inicializar os testes. Inicializar a classse a ser testada e as classes dependentes
  */
   setUp(() {
     cepRepository = MockCepRepository();
-    // cepRepository passado  por injeção ded dep. para que ele seja usado no setup e consiga usar alguams implementações quando for chamado no teste
+    // cepRepository passado  por injeção de dep. para que ele seja usado no setup e consiga usar alguams implementações quando for chamado no teste
     getCepDetaisByCep = GetCepDetaisByCep(cepRepository);
 
     registerFallbackValue(tGetCepDetaisByCepRightBody);
   });
   // Criando os testes.
 
-/**
- * // Para fazer um setup antes de inicializar os testes. Inicializar a classse a ser testada e as classes dependentes
- */
+
   group('should get cep details by cep', () {
     test('success', () async {
       when(() => cepRepository.getCepDetaisByCep(any()))
@@ -45,7 +42,7 @@ void main() {
           Left(CepException(message: ConstsStrings.kDefaultErrorMessage)));
         final cepResponseEither = await getCepDetaisByCep(tGetCepDetaisByCepRightBody);
         expect(cepResponseEither, isA<Left>());
-        // cepResponseEither as Left porque é certeza que será retorano um Left  devido ao return, pegao valor do Left, faz um cast como CepException, usa o '.message por ter cezeta a message do when será igual ao do expect.
+        // cepResponseEither as Left porque é certeza que será retorano um Left  devido ao return, pega o valor do Left, faz um cast como CepException, usa o '.message por ter certeza que a message do when será igual ao do expect.
         expect(((cepResponseEither as Left).value as CepException).message, ConstsStrings.kDefaultErrorMessage);
     });
   });

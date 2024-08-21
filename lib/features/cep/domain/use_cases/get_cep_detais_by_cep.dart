@@ -14,4 +14,6 @@ class GetCepDetaisByCep {
   Future<Either<CepException, CepResponse>> call(GetCeoDetailsByCepBody body){
     return _repository.getCepDetaisByCep(body);
   } 
+
+  
 }

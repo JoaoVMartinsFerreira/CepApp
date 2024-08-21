@@ -1,5 +1,4 @@
 import 'package:cep_app/shared/data/async/either.dart';
-import 'package:cep_app/shared/data/local/local_service/errors/local_exception.dart';
 import 'package:cep_app/shared/data/local/local_service/local_service.dart';
 import 'package:cep_app/shared/ui/theme/errors/theme_local_exception.dart';
 
