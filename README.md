@@ -1,8 +1,12 @@
 # cep_app
 
-A new Flutter project.
+Flutter app that brings your ZIP code
 
-## Getting Started
+## Technologies and methods used in this app
+• Riverpod
+• Clean Architeecture
+• Test Driven Development
+• Local Storage
 
 This project is a starting point for a Flutter application.
 
